@@ -42,18 +42,19 @@ public class MCM {
         System.out.println();
 
         double[][] harga = a.harga;
-        System.out.println("================================");
-        System.out.println("           Tabel Harga  ");
-        System.out.println("================================");
+        System.out.println("===========================================");
+        System.out.println("                  Tabel Harga  ");
+        System.out.println("===========================================");
         for (int i = 1; i < harga.length; i++) {
             for (int j = 1; j < harga[0].length; j++) {
                 if (j < i)
                     System.out.printf("%-12s", " ");
                 else
-                    System.out.printf("%-12s", harga[i][j] + " ");
+                    System.out.printf("%12s", harga[i][j] + " ");
             }
             System.out.println();
         }
+        System.out.print("Hasil Pengurungannya yaitu: ");
         parens(a.s, 1, pjg - 1);
     }
 
