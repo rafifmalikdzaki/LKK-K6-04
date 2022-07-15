@@ -1,11 +1,8 @@
-package Soal2;
-
-// import java.util.*;
+import java.util.Scanner;
 
 class Matrix {
     double[][] m;
     int[][] s;
-
     Matrix(double[][] m, int[][] s) {
         this.m = m;
         this.s = s;
@@ -15,18 +12,23 @@ class Matrix {
 public class MCM {
 
     public static void main(String[] args) {
-        int[] p = { 30, 35, 15, 5, 10, 20, 25 };
+        Scanner input = new Scanner(System.in);
+        System.out.print("Masukkan panjang array: ");
+        int pjg = input.nextInt();
+        int[] p = new int[pjg];
+        for (int i=0 ; i<pjg ; i++){
+            System.out.print("Masukkan angka array ke-"+(i+1)+": ");
+            p[i] = input.nextInt();
+        }
         Matrix a = MCMopt(p);
         int[][] s = a.s;
-        // System.out.println(Arrays.deepToString(a.m));
-        // System.out.println(Arrays.deepToString(a.s));
         for (int i = 0; i < s.length; i++) {
             for (int j = 0; j < s[0].length; j++) {
                 System.out.print(s[i][j] + " ");
             }
             System.out.println();
         }
-        parens(a.s, 1, 5);
+        parens(a.s, 1, pjg-1);
 
     }
 
@@ -57,7 +59,6 @@ public class MCM {
         }
 
         Matrix a = new Matrix(m, s);
-
         return a;
     }
 
