@@ -7,9 +7,9 @@ public class LexicographicOrderPermutations {
         int[] arr = { 1, 2, 3 };
         int permNum = (int) Math.pow(2, arr.length) - 2;
         System.out.println(permNum);
-        for (int i = 0; i < 6; i++) {
-            System.out.println(Arrays.toString(arr));
+        for (int i = 0; i < 5; i++) {
             getNextLexicographicOrderPermutation(arr, arr.length);
+            System.out.println(Arrays.toString(arr));
         }
     }
 
