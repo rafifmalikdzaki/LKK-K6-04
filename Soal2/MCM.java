@@ -60,9 +60,7 @@ public class MCM {
 
             }
         }
-
         MatrixMCM a = new MatrixMCM(harga, s);
-
         return a;
     }
 
