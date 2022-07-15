@@ -1,4 +1,4 @@
-package inputLCS;
+package LCSTest;
 
 import java.util.*;
 
@@ -18,19 +18,19 @@ class MatrixLCS {
 public class MyLCS {
 	public static void main(String[] args) {
 
-		Scanner in= new Scanner(System.in);
+		Scanner in = new Scanner(System.in);
 		System.out.println("-----------");
 		System.out.println("LCS Program");
 		System.out.println("-----------\n");
 		System.out.print("\nMasukkan String 1: ");
-		String string1= in.nextLine();
+		String string1 = in.nextLine();
 		System.out.print("Masukkan String2: ");
-		String string2= in.nextLine();
+		String string2 = in.nextLine();
 
-		char[] charString1= string1.toCharArray();
-		char[] charString2= string2.toCharArray();
+		char[] charString1 = string1.toCharArray();
+		char[] charString2 = string2.toCharArray();
 
-		MatrixLCS matrix= panjangLCS(charString1, charString2);
+		MatrixLCS matrix = panjangLCS(charString1, charString2);
 		char[][] arah = matrix.arah;
 		int[][] harga = matrix.harga;
 		System.out.println();
@@ -38,6 +38,7 @@ public class MyLCS {
 		printArah(arah);
 		System.out.print("\nLongest Common Subsequence: ");
 		printLCS(arah, charString1, charString1.length, charString2.length);
+		in.close();
 	}
 
 	public static MatrixLCS panjangLCS(char[] string1, char[] string2) {
@@ -81,14 +82,14 @@ public class MyLCS {
 
 	public static void printHarga(int[][] harga) {
 		System.out.println("Tabel Harga\n");
-			for (int i = 0; i < harga.length; i++) {
-				System.out.print("| ");
-				for (int j = 0; j < harga[0].length; j++) {
-					System.out.print(harga[i][j] + "  ");
-				}
-				System.out.print("|");
-				System.out.println();
+		for (int i = 0; i < harga.length; i++) {
+			System.out.print("| ");
+			for (int j = 0; j < harga[0].length; j++) {
+				System.out.print(harga[i][j] + "  ");
 			}
+			System.out.print("|");
+			System.out.println();
+		}
 	}
 
 	public static void printArah(char[][] arah) {
@@ -98,18 +99,18 @@ public class MyLCS {
 			for (int j = 0; j < arah[0].length; j++) {
 				if (arah[i][j] == 0) {
 					System.out.print('0' + " ");
-				} else System.out.print(arah[i][j] + " ");
+				} else
+					System.out.print(arah[i][j] + " ");
 			}
 			System.out.print(" ]");
 			System.out.println();
 		}
 	}
-	
 
 	/*
-	Test case
-	abcbdab
-	bdcaba
+	 * Test case
+	 * abcbdab
+	 * bdcaba
 	 */
 
 }
