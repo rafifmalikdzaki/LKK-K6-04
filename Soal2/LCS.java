@@ -1,6 +1,6 @@
 package Soal2;
 
-// import java.util.*;
+import java.util.*;
 
 class MatrixA {
     int[][] c;
@@ -9,11 +9,9 @@ class MatrixA {
     MatrixA(int[][] c, char[][] b) {
         this.c = c;
         this.b = b;
-
     }
 
     MatrixA() {
-
     }
 }
 
@@ -26,6 +24,7 @@ public class LCS {
         MatrixA a = LCSLength(X, Y);
         char[][] b = a.b;
         printLCS(b, X, X.length, Y.length);
+        System.out.println(Arrays.deepToString(b));
     }
 
     public static MatrixA LCSLength(char[] x, char[] y) {
