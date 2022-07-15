@@ -17,14 +17,28 @@ class MatrixLCS {
 
 public class LCS {
     public static void main(String[] args) {
-        String string1 = "ABCBDAB";
-        String string2 = "BDCABA";
+
+        Scanner in = new Scanner(System.in);
+        System.out.println("-----------");
+        System.out.println("LCS Program");
+        System.out.println("-----------\n");
+        System.out.print("\nMasukkan String 1: ");
+        String string1 = in.nextLine();
+        System.out.print("Masukkan String2: ");
+        String string2 = in.nextLine();
+
         char[] charString1 = string1.toCharArray();
         char[] charString2 = string2.toCharArray();
-        MatrixLCS a = panjangLCS(charString1, charString2);
-        char[][] arah = a.arah;
+
+        MatrixLCS matrix = panjangLCS(charString1, charString2);
+        char[][] arah = matrix.arah;
+        int[][] harga = matrix.harga;
+        System.out.println();
+        printHarga(harga);
+        printArah(arah);
+        System.out.print("\nLongest Common Subsequence: ");
         printLCS(arah, charString1, charString1.length, charString2.length);
-        System.out.println(Arrays.deepToString(arah));
+        in.close();
     }
 
     public static MatrixLCS panjangLCS(char[] string1, char[] string2) {
@@ -58,7 +72,7 @@ public class LCS {
 
         if (arah[i][j] == '\\') {
             printLCS(arah, charString1, i - 1, j - 1);
-            System.out.println(charString1[i - 1]);
+            System.out.print(charString1[i - 1] + " ");
         } else if (arah[i][j] == '|') {
             printLCS(arah, charString1, i - 1, j);
         } else {
@@ -66,4 +80,31 @@ public class LCS {
         }
     }
 
+    public static void printHarga(int[][] harga) {
+        System.out.println("Tabel Harga\n");
+        for (int i = 0; i < harga.length; i++) {
+            System.out.print("| ");
+            for (int j = 0; j < harga[0].length; j++) {
+                System.out.print(harga[i][j] + "  ");
+            }
+            System.out.print("|");
+            System.out.println();
+        }
+    }
+
+    public static void printArah(char[][] arah) {
+        System.out.println("\nTabel Arah\n");
+        for (int i = 0; i < arah.length; i++) {
+            System.out.print("[  ");
+            for (int j = 0; j < arah[0].length; j++) {
+                if (arah[i][j] == 0) {
+                    System.out.print('0' + " ");
+                } else
+                    System.out.print(arah[i][j] + " ");
+            }
+            System.out.print(" ]");
+            System.out.println();
+        }
+
+    }
 }

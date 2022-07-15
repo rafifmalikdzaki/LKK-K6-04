@@ -1,4 +1,4 @@
-package inputLCS;
+package LCSTest;
 
 import java.util.*;
 
