@@ -1,4 +1,4 @@
-package DynamicProgramming;
+package Soal2;
 
 // import java.util.*;
 
