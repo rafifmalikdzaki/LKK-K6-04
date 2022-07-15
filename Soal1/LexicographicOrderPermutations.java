@@ -5,12 +5,18 @@ import java.util.*;
 public class LexicographicOrderPermutations {
     public static void main(String[] args) {
         int[] arr = { 1, 2, 3 };
-        int permNum = (int) Math.pow(2, arr.length) - 2;
+        int permNum = factorial(arr.length);
         System.out.println(permNum);
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 8; i++) {
             getNextLexicographicOrderPermutation(arr, arr.length);
             System.out.println(Arrays.toString(arr));
         }
+    }
+
+    public static int factorial(int n) {
+        if (n == 0)
+            return 1;
+        return factorial(n * factorial(n - 1));
     }
 
     public static void swap(int[] arr, int i, int j) {
