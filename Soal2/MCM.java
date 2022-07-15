@@ -1,6 +1,6 @@
 package Soal2;
 
-// import java.util.*;
+import java.util.Scanner;
 
 class MatrixMCM {
     double[][] harga;
@@ -15,19 +15,24 @@ class MatrixMCM {
 public class MCM {
 
     public static void main(String[] args) {
-        int[] p = { 30, 35, 15, 5, 10, 20, 25, 70, 20, 50, 40, 30, 35, 15, 30, 35, 15, };
+        Scanner input = new Scanner(System.in);
+        System.out.print("Masukkan panjang array: ");
+        int pjg = input.nextInt();
+        int[] p = new int[pjg];
+        for (int i = 0; i < pjg; i++) {
+            System.out.print("Masukkan angka array ke-" + (i + 1) + ": ");
+            p[i] = input.nextInt();
+        }
         MatrixMCM a = MCMopt(p);
         int[][] s = a.s;
-        // System.out.println(Arrays.deepToString(a.harga));
-        // System.out.println(Arrays.deepToString(a.s));
         for (int i = 0; i < s.length; i++) {
             for (int j = 0; j < s[0].length; j++) {
                 System.out.print(s[i][j] + " ");
             }
             System.out.println();
         }
-        parens(a.s, 1, p.length - 1);
-
+        parens(a.s, 1, pjg - 1);
+        input.close();
     }
 
     public static MatrixMCM MCMopt(int[] points) {
