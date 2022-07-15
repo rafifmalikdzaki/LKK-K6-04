@@ -79,7 +79,12 @@ public class JohnsonTrotter{
 		return res;
 	}
 
-	public static void printPermutasi(int n) {
+	public static void main(String argc[]) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Masukkan banyaknya angka yang ingin dimasukkan : ");
+		int n = input.nextInt();
+		input.close();
+		System.out.println();
 		int[] a = new int[n];
 		boolean[] dir = new boolean[n];
 
@@ -97,14 +102,5 @@ public class JohnsonTrotter{
 			printSatu(a, dir, n);
 			System.out.println();
 		}
-	}
-	
-	public static void main(String argc[]) {
-		Scanner input = new Scanner(System.in);
-		System.out.print("Masukkan banyaknya angka yang ingin dimasukkan : ");
-		int n = input.nextInt();
-		input.close();
-		System.out.println();
-		printPermutasi(n);
 	}
 }
