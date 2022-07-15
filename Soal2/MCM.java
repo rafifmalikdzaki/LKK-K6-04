@@ -19,19 +19,41 @@ public class MCM {
         System.out.print("Masukkan panjang array: ");
         int pjg = input.nextInt();
         int[] p = new int[pjg];
-        for (int i = 0; i < pjg; i++) {
-            System.out.print("Masukkan angka array ke-" + (i + 1) + ": ");
+        for (int i=0 ; i<pjg ; i++){
+            System.out.print("Masukkan angka array ke-"+(i+1)+": ");
             p[i] = input.nextInt();
         }
-        MatrixMCM a = MCMopt(p);
+        System.out.println();
+        Matrix a = MCMopt(p);
         int[][] s = a.s;
-        for (int i = 0; i < s.length; i++) {
-            for (int j = 0; j < s[0].length; j++) {
-                System.out.print(s[i][j] + " ");
+        System.out.println("===========");
+        System.out.println("  Tabel K  ");
+        System.out.println("===========");
+        for (int i = 1; i < s.length; i++) {
+            for (int j = 1; j < s[0].length; j++) {
+                if (j<i)
+                    System.out.printf("%-3s", " ");
+                else
+                    System.out.printf("%-3s", s[i][j] + " ");
             }
             System.out.println();
         }
-        parens(a.s, 1, pjg - 1);
+        System.out.println();
+
+        double[][] m = a.m;
+        System.out.println("================================");
+        System.out.println("           Tabel Harga  ");
+        System.out.println("================================");
+        for (int i = 1; i < m.length; i++) {
+            for (int j = 1; j < m[0].length; j++) {
+                if (j<i)
+                    System.out.printf("%-12s", " ");
+                else
+                    System.out.printf("%-12s", m[i][j] + " ");
+            }
+            System.out.println();
+        }
+        parens(a.s, 1, pjg-1);
         input.close();
     }
 
